@@ -1,0 +1,147 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+#include <string.h>
+
+#define p 3
+
+using namespace std;
+struct data{
+	int kodebk;
+	string nama;
+	string alamat;
+	data *next;
+};
+
+data *f,*r,*baru,*bantu,*b1,*b2,*hapus;
+
+
+main(){
+	int pil,ul,x;
+	int c=0;
+	char y;
+	int font=0,rear=-1;
+	int dar=0,t;
+	
+	do{
+		cout<<"============================"<<endl;
+		cout<<"PROGRAM CIRCULAR LINKED LIST"<<endl;
+		cout<<"============================"<<endl;
+		cout<<"1.Enqueue"<<endl;
+		cout<<"2.Dequeue"<<endl;
+		cout<<"3.view"<<endl;
+		cout<<"Pilih :";
+		cin>>pil;
+		switch(pil){
+			case 1:
+		system("cls");
+		if (c==p){ 
+		cout<<"Antrian penuh";
+	}else{
+			if (font==-1 && rear==-1) {
+            		font++;
+            		rear++;
+        	}else {
+        
+	
+						 	
+				baru=new data;
+				cout<<"Kode buku   : ";
+				cin>>baru->kodebk;
+				cout<<"Nama        : ";
+				cin>>baru->nama;
+				cout<<"alamat      : ";
+				cin>>baru->alamat;
+				baru->next=NULL;
+				system("cls");
+
+		if(f==NULL){
+				f=baru;
+				f->next=NULL;
+			}else{
+			bantu=f;
+			while(bantu->next!=NULL){
+			bantu=bantu->next;
+    		}
+			bantu->next=baru;
+			}
+			rear=(rear+1)%p;
+			c++;
+			
+		}
+				            
+	}
+					
+			break;
+				
+			
+				case 2:
+			if (c<1){
+				cout<<"Antrian kosong";
+			}else{
+			
+                      	
+    		if (f!=NULL){
+    		cout<<"data yang di dequeue"<<endl;
+    		cout<<"Kode Buku :"<<f->kodebk<<endl;
+            cout<<"Nama      :"<<f->nama<<endl;
+            cout<<"Alamat    :"<<f->alamat<<endl;
+        
+            system("pause");
+				if(f->next!=NULL){
+				hapus=f;
+				f=f->next;
+				delete hapus;
+				system("cls");
+				}else {
+				f=NULL;
+				}
+			}
+            font=(font+1)%p;
+           	c--;            
+			}
+		
+			cout<<endl;
+				
+				break;
+				case 3:
+					system("cls");
+					if(c==0){
+						cout<<"antrian koosng"<<endl;
+					}else{
+				r=f;
+                  bantu=f;
+         
+			
+cout<<"|Nama|\t\t";;cout<<"|Alamat|\t";cout<<"|Kode Buku|\t"; 
+                      while (bantu!=NULL){
+                      		cout<<endl;
+
+cout<<""<<bantu->nama;cout<<"\t"<<bantu->alamat;cout<<"\t"<<bantu->kodebk;
+                      		
+                            
+                            
+                            bantu=bantu->next;
+                          
+							  cout<<endl;
+                        	
+        }
+      
+                }
+		
+                            
+                            break;
+                 
+			
+			
+			
+			
+			
+			
+			
+		}
+		
+		
+	}while(pil<5);
+}
+	
